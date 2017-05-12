@@ -8,5 +8,5 @@ import org.apache.omid.transaction.TransactionException;
  */
 public interface TransactionManagerService {
     TransactionService begin() throws TransactionException;
-    void commit(TransactionService transaction) throws RollbackException, TransactionException;
+    void commit(TransactionService transaction) throws RollbackException, TransactionException, hbase.RollbackException;
 }

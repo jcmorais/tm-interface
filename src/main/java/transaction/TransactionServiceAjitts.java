@@ -1,34 +1,35 @@
 package transaction;
 
-import client.TransactionAjitts;
+
+import hbase.HBaseTransaction;
 
 /**
  * Created by carlosmorais on 25/04/2017.
  */
 public class TransactionServiceAjitts implements TransactionService {
-    TransactionAjitts transaction;
+    HBaseTransaction transaction;
 
-    public TransactionServiceAjitts(TransactionAjitts transaction) {
+    public TransactionServiceAjitts(HBaseTransaction transaction) {
         this.transaction = transaction;
     }
 
-    public TransactionAjitts getTransaction() {
+    public HBaseTransaction getTransaction() {
         return transaction;
     }
 
-    public void setTransaction(TransactionAjitts transaction) {
+    public void setTransaction(HBaseTransaction transaction) {
         this.transaction = transaction;
     }
 
     public long startTS() {
-        return transaction.getBeginTS();
+        return transaction.getStartTimestamp();
     }
 
     public long commitTS() {
-        return transaction.getCommitTS();
+        return transaction.getCommitTimestamp();
     }
 
     public long id() {
-        return transaction.getCommitTS();
+        return transaction.getTransactionId();
     }
 }
