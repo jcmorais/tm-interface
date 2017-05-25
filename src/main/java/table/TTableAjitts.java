@@ -41,7 +41,8 @@ public class TTableAjitts implements TxTable {
 
     @Override
     public ResultScanner getScanner(TransactionService tx, Scan scan) throws IOException {
-        return table.getScanner((Transaction) tx, scan);
+        return null;
+        //return table.getScanner((Transaction) tx, scan);
     }
 
     @Override

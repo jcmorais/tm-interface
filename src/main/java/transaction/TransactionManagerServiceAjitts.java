@@ -5,6 +5,8 @@ import hbase.HBaseTransactionManager;
 import hbase.RollbackException;
 import hbase.Transaction;
 
+import java.io.IOException;
+
 /**
  * Created by carlosmorais on 25/04/2017.
  */
@@ -30,6 +32,10 @@ public class TransactionManagerServiceAjitts implements TransactionManagerServic
 
     public void commit(TransactionService transaction) throws RollbackException {
         TransactionServiceAjitts t = (TransactionServiceAjitts) transaction;
-        tm.commit(t.getTransaction());
+        try {
+            tm.commit(t.getTransaction());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
