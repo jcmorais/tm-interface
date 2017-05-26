@@ -25,7 +25,7 @@ public class TTableOmid implements TxTable {
 
     @Override
     public Result get(TransactionService transaction, Get get) throws IOException {
-        return tTable.get((Transaction) transaction, get);
+        return tTable.get(((TransactionServiceOmid) transaction).getTransaction(), get);
     }
 
     @Override
