@@ -41,12 +41,11 @@ public class TTableAjitts implements TxTable {
 
     @Override
     public ResultScanner getScanner(TransactionService tx, Scan scan) throws IOException {
-        return null;
-        //return table.getScanner((Transaction) tx, scan);
+        return table.getScanner(((TransactionServiceAjitts) tx).getTransaction(), scan);
     }
 
     @Override
     public void delete(TransactionService tx, Delete delete) throws IOException {
-        table.delete((Transaction) tx, delete);
+        table.delete(((TransactionServiceAjitts) tx).getTransaction(), delete);
     }
 }

@@ -41,11 +41,11 @@ public class TTableOmid implements TxTable {
 
     @Override
     public ResultScanner getScanner(TransactionService tx, Scan scan) throws IOException {
-        return tTable.getScanner((Transaction) tx, scan);
+        return tTable.getScanner(((TransactionServiceOmid) tx).getTransaction(), scan);
     }
 
     @Override
     public void delete(TransactionService tx, Delete delete) throws IOException {
-        tTable.delete((Transaction) tx, delete);
+        tTable.delete(((TransactionServiceOmid) tx).getTransaction(), delete);
     }
 }
